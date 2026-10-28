@@ -44,13 +44,16 @@ Gameplay:
 ## Priorities
 Must have:
 - The gameplay abilities
+- The time limit that starts once players finish selecting their ingredients.
 - The ability to choose random ingredients in the beginning 
 - The 3 working judges and their different preferences 
 - A clear scoring system that works 
 - The instructions in the beginning of how to play 
+
 Nice to have:
 - Judge feedback 
 - A fully fleshed out UI so the game feels interactive 
-- Dish naming and the ability to use a pantry for other miscellaneous ingredients
+- Dish naming
+- The ability to use a pantry for other miscellaneous ingredients
 
 
