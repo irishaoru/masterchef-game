@@ -6,20 +6,20 @@ Play it here: https://irishaoru.github.io/masterchef-game/
 ## How to Play
 
 1. Read the opening instructions to clarify gameplay. 
-2. Then, press "start cooking" to  pick your six random ingredients. Each ingredient has 3 options and you choose one of three cards. Each card flips over to show what you got.
-2. Choose exactly two methods of cooking from these 4 options: sauté, bake, boil, or blend. Start cooking begins the five-minute timer.
-3. Use arrow keys (or the on-screen arrows) to walk around the kitchen. Click food on the center table to pick it up, then click a nearby station to use it (a prompt above the station shows what will happen). You can also drag food from the table onto a nearby station, or use the controls below the kitchen.
-4. Cook in any order you like. Prepping food is option but prepped food cooks about a third faster. The pan and pot (on the stovetop), the oven tray, and the mixer each hold up to three ingredient, and ingredients cooked together are noted by the judges. Food can come out, go back on the heat, or move to another appliance.
-5. Appliances heat up realistically. Pans take a moment to get hot, water has to come to a boil, and the oven preheats (you can turn them on ahead of time). Food browns as it cooks, moving from raw through perfect to overcooked, and dry heat eventually burns it. Boiling only makes food overcooked. The mixer turns food into a purée, which is plated as a sauce.
-6. Season at the pantry and plate at the counter. Plated food can be taken back until you press Finish. Then name your dish and Serve. At five minutes, cooking ends automatically.
-7. Three judges score from 1–10 each. Their total loses two points for each unplated basket ingredient, with a minimum final score of zero. 
-8. Play Again clears the entire round.
+2. Then, press "start cooking" to pick your six random ingredients. Each ingredient has 3 options and you choose one of three cards. Each card flips over to show what you got.
+3. Choose exactly two methods of cooking from these 4 options: sauté, bake, boil, or blend. Start cooking begins the five-minute timer.
+4. Use arrow keys (or the on-screen arrows) to walk around the kitchen. Click food on the center table to pick it up, then click a nearby station to use it (a prompt above the station shows what will happen). You can also drag food from the table onto a nearby station, or use the controls below the kitchen.
+5. Cook in any order you like. Prepping food is optional but prepped food cooks about a third faster. The pan and pot (on the stovetop), the oven tray, and the mixer each hold up to three ingredients, and ingredients cooked together are noted by the judges. Food can come out, go back on the heat, or move to another appliance.
+6. Appliances heat up realistically. Pans take a moment to get hot, water has to come to a boil, and the oven preheats (you can turn them on ahead of time). Food browns as it cooks, moving from raw through perfect to overcooked, and dry heat eventually burns it. Boiling only makes food overcooked. The mixer turns food into a purée, which is plated as a sauce.
+7. Season at the pantry and plate at the counter. Plated food can be taken back until you press Finish. Then name your dish and Serve. At five minutes, cooking ends automatically.
+8. Three judges score from 1–10 each. Their total loses two points for each unplated basket ingredient, with a minimum final score of zero. 
+9. Play Again clears the entire round.
 
 ## Features built based on spec
 **Main game**:
 - ingredient selection (players are able to pick one of three hidden cards for each of the 6 ingredients without knowing what's behind them)
 - Arrow-key movements 
-- Aerial view of hte kitchen and all the different stations as well as the player itself  
+- Aerial view of the kitchen and all the different stations as well as the player itself  
 - Food can be cooked and burned on the stovetop and in the oven, and it changes colour as it browns
 - Chopping, sautéing, boiling, baking and blending (mixer)
 - Pantry with seasonings (salt, pepper, olive oil, garlic, chili, basil) that can be added to the dish
@@ -51,15 +51,15 @@ Play it here: https://irishaoru.github.io/masterchef-game/
 ## What still needs to be done/Idea suggestions:
 ### Testing and polishing UX
 - Test on more browsers and devices (so far tested mainly in Chrome)
-- On phones, the judges' row is hidden in the kitchen. That makes line 44's "kitchen screens" not quite true on mobile.
+- On phones, the judges' row is hidden in the kitchen. 
 - Judging round could be a lot more interactive because right now it feels very static
 - More random ingredients (they're pretty limited right now)
 - perhaps adding some sound effects (sizzling, boiling, timer countdown, "hands off!")
-- difficulty evels or different time limits 
+- difficulty levels or different time limits 
 
 
 ## AI use
 Used Codex originally to build out the first version. The UI and gameplay proved to be very challenging for it to fix so I switched to Claude Code. 
 
-Claude rewrote the cooking system, the animations, replaced the food emojis with actually drawn illustrations, and all of this was based on the features I had in my SPEC.md as well as some modifications that I gave to Claude in the prompt such as just havin two cooking methods so that would mean players can't use all the stations and this also means the timer doens't start until after they've chosen their methods, which is different from what I wrote in my spec. 
+Claude rewrote the cooking system, the animations, replaced the food emojis with actually drawn illustrations, and all of this was based on the features I had in my SPEC.md as well as some modifications that I gave to Claude in the prompt such as just having two cooking methods so that would mean players can't use all the stations and this also means the timer doesn't start until after they've chosen their methods, which is different from what I wrote in my spec. 
 
