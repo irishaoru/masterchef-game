@@ -52,7 +52,7 @@ Must have:
 
 Nice to have:
 - Judge feedback 
-- A fully fleshed out UI so the game feels interactive 
+- A fully fleshed out UI so the game feels interactive (this includes features/animations that make it feel like a masterchef cooking competition and more realistic movements in the cooking phase )
 - Dish naming
 - The ability to use a pantry for other miscellaneous ingredients
 
