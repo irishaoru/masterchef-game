@@ -61,5 +61,5 @@ Play it here: https://irishaoru.github.io/masterchef-game/
 ## AI use
 Used Codex originally to build out the first version. The UI and gameplay proved to be very challenging for it to fix so I switched to Claude Code. 
 
-Claude rewrote the cooking system, the animations, replaced the food emojis with actually drawn illustrations, and all of this was based on the features I had in my SPEC.md as well as some modifications that I gave to Claude in the prompt such as just having two cooking methods so that would mean players can't use all the stations and this also means the timer doesn't start until after they've chosen their methods, which is different from what I wrote in my spec. 
+Claude rewrote the cooking system, the animations, replaced the food emojis with actually drawn illustrations, and all of this was based on the features I had in my SPEC.md as well as some modifications that I gave to Claude in the prompt such as just having two cooking methods so that would mean players can't use all the stations and this also means the timer doesn't start until after they've chosen their methods, which is different ftrom what I wrote in my spec. 
 
