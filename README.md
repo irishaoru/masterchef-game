@@ -3,6 +3,11 @@ The game is a cooking competition where players make a dish from 6 random ingred
 
 Play it here: https://irishaoru.github.io/masterchef-game/
 
+## How to Run
+- Play online: https://irishaoru.github.io/masterchef-game/
+- Locally: clone the repo (`git clone https://github.com/irishaoru/masterchef-game.git`) and open `index.html` in a browser. There's no install or build step. (Optional: run `python3 -m http.server 8000` in the folder and visit http://localhost:8000.)
+- Tests: install Node.js, then run `node --test tests/game.test.cjs`.
+
 ## How to Play
 
 1. Read the opening instructions to clarify gameplay. 
@@ -63,18 +68,33 @@ Play it here: https://irishaoru.github.io/masterchef-game/
 - The pantry has seasonings only. It doesn't offer extra ingredients like other condiments
 - The kitchen is styled like a cooking-show studio but isn't an exact copy of the MasterChef layout. It's also rather squished on the screen
 
-## What still needs to be done/Idea suggestions:
-### Testing and polishing UX
-- Test on more browsers and devices (so far tested mainly in Chrome)
-- On phones, the judges' row is hidden in the kitchen. 
-- Judging round could be a lot more interactive because right now it feels very static
-- More random ingredients (they're pretty limited right now)
-- perhaps adding some sound effects (sizzling, boiling, timer countdown, "hands off!")
-- difficulty levels or different time limits 
+## What still needs to be done/Idea suggestions (in priority order)
+1. Fix the chef stopping when you click while walking (see Known Bugs and Traps)
+2. Test on more browsers and devices (so far tested mainly in Chrome)
+3. On phones, the judges' row is hidden in the kitchen. Show it there too
+4. Judging round could be a lot more interactive because right now it feels very static
+5. More random ingredients (they're pretty limited right now)
+6. perhaps adding some sound effects (sizzling, boiling, timer countdown, "hands off!")
+7. difficulty levels or different time limits
 
+## Known Bugs and Traps
+- Clicking anything while holding an arrow key stops the chef (any pointer-up clears all held keys). Press the arrow again to keep walking.
+- If the tab is in the background, cooking pauses but the 5-minute timer keeps running.
+- The island's collision walls are hard-coded numbers in `isBlocked()`, separate from the island's CSS. If you move the island in `style.css`, the chef will still bump into the old position.
+- The doneness thresholds in `quality()` (0.3, 0.85, 1.45, 1.9) are also baked into the colour bands of the `.meter` bar in `style.css`. Change one and you have to change the other.
+- `syncKitchen` and `renderStation` only redraw when their "key" changes. If you make them show something new, add it to the key, or the screen won't update.
+- The tests use a fake DOM, so they check game logic but not what's drawn on screen. New DOM calls in `game.js` may need adding to the fake DOM in the tests.
+- Edit the later sections of `style.css`, not line 1. Later rules override earlier ones.
+
+## Corners Cut
+- Everything is in one `game.js` using HTML strings instead of a framework or modules. That kept the game easy to host on GitHub Pages with no build step, but it makes the file long.
+- Cooking times are shortened and the judges' scoring weights were tuned by hand, not playtested, so the scores may need balancing.
+- The pantry only has seasonings, not extra ingredients.
+- Dragging only works from the table to a station; everything else is click-based.
+- Tested mainly in Chrome.
 
 ## AI use
-Used Codex originally to build out the first version. The UI and gameplay proved to be very challenging for it to fix so I switched to Claude Code. 
+Used Codex to help write my SPEC.md and to build out the first version. The UI and gameplay proved to be very challenging for it to fix so I switched to Claude Code. All my prompts are in [PROMPT_LOG.md](PROMPT_LOG.md).
 
-Claude rewrote the cooking system, the animations, replaced the food emojis with actually drawn illustrations, and all of this was based on the features I had in my SPEC.md as well as some modifications that I gave to Claude in the prompt such as just having two cooking methods so that would mean players can't use all the stations and this also means the timer doesn't start until after they've chosen their methods, which is different ftrom what I wrote in my spec. 
+Claude rewrote the cooking system, the animations, replaced the food emojis with actually drawn illustrations, and all of this was based on the features I had in my SPEC.md as well as additional instructions that I gave to Claude in the prompt. One difference from my spec: players only pick two cooking methods, so they can't use every station, and the timer doesn't start until after they've chosen their methods instead of right after picking ingredients.
 
