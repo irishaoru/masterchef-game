@@ -15,6 +15,21 @@ Play it here: https://irishaoru.github.io/masterchef-game/
 8. Three judges score from 1–10 each. Their total loses two points for each unplated basket ingredient, with a minimum final score of zero. 
 9. Play Again clears the entire round.
 
+## Code Map
+- index.html: page shell. Loads `style.css` and `game.js`; every screen is drawn into `<main id="app">`.
+- `style.css`: all styling and animations. Line 1 is the original stylesheet compressed onto one line; the sections after it add to it and override it.
+- `tests/game.test.cjs`: Node tests that run `game.js` against a fake DOM.
+- `game.js`: all game logic. There are no classes; it's organised as plain data plus functions:
+  - **Game data (top of file):** `CATEGORIES` (ingredients offered in each card round), `INGREDIENTS` (colour, knife prep, cook time, whether it's safe raw, classic methods), `METHODS` (cooking speed, warm-up time), `JUDGES`, `STATIONS` (station positions in the kitchen), `SEASONINGS`, `ROUND_SECONDS`, `CAPACITY`.
+  - **Drawings:** `WHOLE_ART`, `piecesArt`, `pureeArt`, `foodArt` (all ingredient pictures), `foodLook` (browning/burning colour), `plateMarkup`, `judgeArt`, `METHOD_ART`.
+  - **Screens:** `render` picks the screen; `renderIntro` (title), `renderSelection`/`pick` (cards), `renderMethods`, `renderKitchen`/`stationScene`, `renderResults`.
+  - **Cooking:** `simulate` (heating and cooking every frame), `quality` (raw → perfect → burnt), `methodsOf`.
+  - **Player actions:** `primaryAction`/`runPrimary` (what clicking a station does), `grab`, `addTo`, `startPrep`/`completePrep`, `plateItem`, `togglePower`, `relocate`/`flyFrom` (moving food plus the flying animation).
+  - **Kitchen display:** `syncKitchen` (redraws things when they change), `paintKitchen` (updates colours, meters and the chef every frame), `renderStation` (the control panel under the kitchen).
+  - **Movement and timer:** `moveChef`, `isBlocked` (walls), `updatePosition` (nearest station), `frame` (main loop), `tick` (clock), `finish`.
+  - **Scoring:** `scoreDish` (all three judges' formulas and comments).
+  - **Input:** the click, drag/drop and keyboard listeners at the bottom.
+
 ## Features built based on spec
 **Main game**:
 - ingredient selection (players are able to pick one of three hidden cards for each of the 6 ingredients without knowing what's behind them)
