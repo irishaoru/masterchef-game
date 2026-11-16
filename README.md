@@ -24,7 +24,9 @@ Play it here: https://irishaoru.github.io/masterchef-game/
 - index.html: page shell. Loads `style.css` and `game.js`; every screen is drawn into `<main id="app">`.
 - `style.css`: all styling and animations. Line 1 is the original stylesheet compressed onto one line; the sections after it add to it and override it.
 - `tests/game.test.cjs`: Node tests that run `game.js` against a fake DOM.
-- `game.js`: all game logic. There are no classes; it's organised as plain data plus functions:
+- `quality.js`: ingredient definitions and the doneness classifier; Node tests can load it with `require('../quality.js')`.
+- `tests/quality.test.cjs`: empty file for the first manually written doneness test.
+- `game.js`: remaining game logic. There are no classes; it's organised as plain data plus functions:
   - **Game data (top of file):** `CATEGORIES` (ingredients offered in each card round), `INGREDIENTS` (colour, knife prep, cook time, whether it's safe raw, classic methods), `METHODS` (cooking speed, warm-up time), `JUDGES`, `STATIONS` (station positions in the kitchen), `SEASONINGS`, `ROUND_SECONDS`, `CAPACITY`.
   - **Drawings:** `WHOLE_ART`, `piecesArt`, `pureeArt`, `foodArt` (all ingredient pictures), `foodLook` (browning/burning colour), `plateMarkup`, `judgeArt`, `METHOD_ART`.
   - **Screens:** `render` picks the screen; `renderIntro` (title), `renderSelection`/`pick` (cards), `renderMethods`, `renderKitchen`/`stationScene`, `renderResults`.

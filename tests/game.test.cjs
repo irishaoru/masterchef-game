@@ -23,6 +23,7 @@ function game() {
   // Timers run immediately so the card-reveal pause does not slow the tests down.
   const context = vm.createContext({ document, window:{addEventListener(){},scrollTo(){}},
     setInterval:()=>1, clearInterval(){}, setTimeout:fn=>fn(), requestAnimationFrame(){}, performance:{now:()=>0}, Date, Math, JSON, console });
+  vm.runInContext(fs.readFileSync(path.join(__dirname,'../quality.js'),'utf8'),context);
   vm.runInContext(fs.readFileSync(path.join(__dirname,'../game.js'),'utf8'),context);
   return code => vm.runInContext(code,context);
 }
