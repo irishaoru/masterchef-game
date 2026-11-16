@@ -26,7 +26,7 @@ function quality(item) {
   const info=INGREDIENTS[item.name];
   if(item.sear>1.9)return 'burnt';
   if(item.done>1.45)return 'overcooked';
-  if(item.done>=.85)return 'perfect';
+  if(item.done>.85)return 'perfect';
   if(item.done>=.3)return info.raw?'warm':'undercooked';
   return info.raw?'fresh':'raw';
 }
